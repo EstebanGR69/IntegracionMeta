@@ -9,7 +9,7 @@ const LoginButton=({ onLogin })=>{
                     facebookLoginHandler(response)
                 }else {
                     console.log("Usuario no autorizado")
-                    window.FB.login(facebookLoginHandler,{scope:'public_profile, email'})
+                    window.FB.login(facebookLoginHandler,{scope:'public_profile',return_scopes: true,enable_profile_selector:true})
                     // the user is logged in to Facebook, 
                     // but has not authenticated your app
                   }
@@ -21,7 +21,8 @@ const LoginButton=({ onLogin })=>{
         console.log(response)
         if(response.status=="connected"){
             window.FB.api('/me?fields=id,name,email,picture',userData=>{
-                console.log(userData)
+                console.log("Datos perrones ",userData)
+                
             //Almacenar la sesión del usuario
             const user={
                 ...userData,

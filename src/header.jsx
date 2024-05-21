@@ -1,7 +1,8 @@
-const Cabecera=()=>{
+const Cabecera=(props)=>{
     return(
         <>
             Cabcecera
+            {props.children}
         </>
     )
 }

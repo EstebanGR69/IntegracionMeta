@@ -13,6 +13,10 @@ export function getUser(){
     getItem('user')
 }
 
+//Función para cerrar sesión
+export function clear(){
+    window.localStorage.clear()
+}
 /*-----------------------------------------------------------------------------*/
 
 /*FUNCIONES PARA ALMACENAMIENTO DE USUARIOS EN "BACK" */
@@ -27,7 +31,6 @@ const getItem=(key)=>{
     /*Validar que exista clave (Lo que sea que nosotros definamos como clave)*/
     if(window.localStorage.getItem(key)){
         return JSON.parse(window.localStorage.getItem(key))
-    }else{
-        return null;
     }
+    return null;
 }
